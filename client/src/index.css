@@ -1,2 +1,63 @@
 @import 'tailwindcss';
 
+@theme {
+    --color-mpesa-green: #68ae4d;
+    --color-mpesa-white: #fefeff;
+    --color-mpesa-red: #cf393b;
+}
+
+/* Light - 300 */
+.league-spartan-light {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Regular (Normal) - 400 */
+.league-spartan-regular {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Medium - 500 */
+.league-spartan-medium {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Semibold - 600 */
+.league-spartan-semibold {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold - 700 */
+.league-spartan-bold {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ExtraBold - 800 */
+.league-spartan-extrabold {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Black - 900 */
+.league-spartan-black {
+  font-family: 'League Spartan', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
