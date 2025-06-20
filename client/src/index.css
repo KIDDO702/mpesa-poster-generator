@@ -6,6 +6,19 @@
     --color-mpesa-red: #cf393b;
 }
 
+@font-face {
+  font-family: 'DS-Digital';
+  src: url('/client/src/assets/fonts/ds_digital/DS-DIGI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ds-digital {
+  font-family: 'DS-Digital', monospace;
+}
+
+
+/* League Spartan Font */
 /* Light - 300 */
 .league-spartan-light {
   font-family: 'League Spartan', sans-serif;
@@ -59,5 +72,48 @@
   font-family: 'League Spartan', sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
+  font-style: normal;
+}
+
+/* Obitron Font */
+.orbitron-light {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+.orbitron-regular {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+.orbitron-medium {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+.orbitron-semibold {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+.orbitron-bold {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+.orbitron-black {
+  font-family: 'Orbitron', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900; /* Black */
   font-style: normal;
 }

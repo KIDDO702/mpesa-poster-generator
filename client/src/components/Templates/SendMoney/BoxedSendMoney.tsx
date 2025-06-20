@@ -6,8 +6,7 @@ type Props = {
     receiverName: string;
 }
 
-function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
-
+function BoxedSendMoney({ phoneNumber, receiverName }: Props) {
   return (
     <div className="w-full border-2 border-mpesa-green">
         <div className="w-full py-6 text-center bg-mpesa-green">
@@ -19,10 +18,15 @@ function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
         <div className="py-5 text-center text-black bg-mpesa-white rounded-t-md">
             <div className="mt-7">
                 <label htmlFor="phoneNumbe" className="text-2xl font-semibold uppercase">Phone Number</label>
-                <div className="border-3 border-mpesa-red w-[80%] mx-auto flex items-center justify-center py-2 mt-1">
-                    <p className="text-6xl tracking-[15px] league-spartan-bold text-center leading-none mt-2">
-                        { phoneNumber || "0712345678" }
-                    </p>
+                <div className="w-[80%] mx-auto flex items-center justify-center gap-5 py-2 mt-1 orbitron-black">
+                { (phoneNumber || "0712345678").split("").map((digit, index) => (
+                    <div
+                        key={index}
+                        className="w-24 h-24 flex items-center justify-center border-3 border-mpesa-red text-5xl font-ds-digital text-black"
+                    >
+                        {digit}
+                    </div>
+                ))}
                 </div>
             </div>
             <div className="mt-12">
@@ -35,7 +39,6 @@ function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
                     </p>
                 </div>
             </div>
-
             <div className="flex items-center justify-between w-11/12 mx-auto mt-8">
                 <hr className="flex-grow mr-4 border border-mpesa-green" />
                 <img src={SafaricomLogo} alt="safaricom-logo" className="w-[150px]" />
@@ -45,4 +48,4 @@ function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
   )
 }
 
-export default ClassicSendMoney
+export default BoxedSendMoney

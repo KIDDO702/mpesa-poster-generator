@@ -3,7 +3,12 @@ import DynamicFormSelector from "../Input/DynamicFormSelector";
 import Preview from "./Preview";
 
 function PosterBuilder() {
-    const [formData, setFormData] = useState(null);
+    const [formData, setFormData] = useState<{
+        phoneNumber: string;
+        receiverName: string;
+        templateType: string;
+        templateId: string;
+      } | null>(null);
   return (
     <>
         <div className="flex flex-col lg:flex-row items-start w-[90%] mx-auto lg:space-x-4 py-10">
