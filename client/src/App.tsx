@@ -1,7 +1,6 @@
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-import DynamicFormSelector from "./components/Input/DynamicFormSelector";
-import Preview from "./components/Preview/Preview";
+import PosterBuilder from "./components/Preview/PosterBuilder"
 
 function App() {
 
@@ -10,14 +9,7 @@ function App() {
       <Navbar />
       <Hero />
 
-      <div className="flex flex-col lg:flex-row items-start w-[90%] mx-auto lg:space-x-4 py-10">
-        <div className="lg:w-[35%] w-full">
-          <DynamicFormSelector />
-        </div>        
-        <div className="lg:w-[65%] w-full mt-7 lg:mt-0">
-          <Preview />
-        </div>
-      </div>
+      <PosterBuilder />      
     </main>
   )
 }
