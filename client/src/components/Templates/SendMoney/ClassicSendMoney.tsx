@@ -9,7 +9,7 @@ type Props = {
 function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
 
   return (
-    <div className="w-full border-2 border-mpesa-green">
+    <div className="w-full border-4 border-mpesa-green">
         <div className="w-full py-6 text-center bg-mpesa-green">
             <img src={MpesaLogo} alt="logo" className="mx-auto w-[85%]" />
             <h3 className="mt-8 text-5xl tracking-wider uppercase league-spartan-bold text-mpesa-white">
