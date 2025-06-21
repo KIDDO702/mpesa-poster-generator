@@ -24,7 +24,6 @@ function WithdrawAgentForm({ onGenerate }: Props) {
       ...data,
       templateType: "withdraw-agent" as const,
     };
-    console.log("Validated Data:", enrichedData);
     onGenerate(enrichedData);
   }
 

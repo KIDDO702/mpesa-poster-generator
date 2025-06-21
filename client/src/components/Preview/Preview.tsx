@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import TemplateSelector from "../Templates/TemplateSelector";
 import { templateRegistry } from "../Templates/templateRegistry";
-// import ClassicWithdrawAgent from "../Templates/WithdrawAgent/ClassicWithdrawAgent";
 
 type Props = {
   formData:
