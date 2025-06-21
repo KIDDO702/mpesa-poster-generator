@@ -5,7 +5,7 @@ import WithdrawAgentForm from "./WithdrawAgentForm";
 import LipaNaMpesaForm from "./LipaNaMpesa/LipaNaMpesaForm";
 
 type Props = {
-  onGenerate: (data: unknown) => void;
+  onGenerate: (data: any) => void;
 };
 
 

@@ -3,7 +3,12 @@ import TemplateSelector from "../Templates/TemplateSelector";
 import { templateRegistry } from "../Templates/templateRegistry";
 
 type Props = {
-  formData: PosterFormData | null;
+  formData:
+    | {
+        templateType: "send-money" | "withdraw-agent" | "lipa-na-mpesa";
+        [key: string]: string | number | boolean; // allows extra fields like phoneNumber, agentName, etc.
+      }
+    | null;
 };
 function Preview({ formData }: Props) {
   const templateType = formData?.templateType;
