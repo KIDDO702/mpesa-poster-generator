@@ -4,10 +4,9 @@ import Preview from "./Preview";
 
 function PosterBuilder() {
     const [formData, setFormData] = useState<{
-        phoneNumber: string;
-        receiverName: string;
-        templateType: string;
+        templateType: "send-money" | "withdraw-agent" | "lipa-na-mpesa";
         templateId: string;
+        [key: string]: string | number | boolean;
       } | null>(null);
   return (
     <>

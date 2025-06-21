@@ -1,5 +1,7 @@
 import ClassicSendMoney from "./SendMoney/ClassicSendMoney";
+import ClassicWithdrawAgent from "./WithdrawAgent/ClassicWithdrawAgent";
 import BoxedSendMoney from "./SendMoney/BoxedSendMoney";
+import BoxedWithdrawAgent from "./WithdrawAgent/BoxedWithdrawAgent";
 import type React from "react";
 
 interface TemplateRegistry {
@@ -23,6 +25,17 @@ export const templateRegistry: TemplateRegistry = {
         component: BoxedSendMoney,
     },
   ],
-  "withdraw-agent": [],
+  "withdraw-agent": [
+    {
+      id: "classic-withdraw-agent",
+      name: "Classic Withdraw Agent",
+      component: ClassicWithdrawAgent,
+    },
+    {
+      id: "boxed-withdraw-agent",
+      name: "Boxed Withdraw Agent",
+      component: BoxedWithdrawAgent,
+    },
+  ],
   "lipa-na-mpesa": [],
 }

@@ -5,7 +5,7 @@ import WithdrawAgentForm from "./WithdrawAgentForm";
 import LipaNaMpesaForm from "./LipaNaMpesa/LipaNaMpesaForm";
 
 type Props = {
-  onGenerate: (data: any) => void;
+  onGenerate: (data: unknown) => void;
 };
 
 
@@ -20,7 +20,7 @@ function DynamicFormSelector({ onGenerate }: Props) {
         
         <div className="transition-all duration-300 ease-in-out mt-7">
             { selectedAction === "send-money" && <SendMoneyForm onGenerate={onGenerate} /> }
-            { selectedAction === "withdraw" && <WithdrawAgentForm /> }  
+            { selectedAction === "withdraw" && <WithdrawAgentForm onGenerate={onGenerate} /> }  
             { selectedAction === "lipa-na-mpesa" && <LipaNaMpesaForm /> }
         </div>
     </div>

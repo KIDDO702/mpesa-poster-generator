@@ -1,17 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TemplateSelector from "../Templates/TemplateSelector";
 import { templateRegistry } from "../Templates/templateRegistry";
+// import ClassicWithdrawAgent from "../Templates/WithdrawAgent/ClassicWithdrawAgent";
 
 type Props = {
-  formData: {
-    phoneNumber: string;
-    receiverName: string;
-  } | null;
+  formData:
+    | {
+        templateType: "send-money" | "withdraw-agent" | "lipa-na-mpesa";
+        [key: string]: string | number | boolean; // allows extra fields like phoneNumber, agentName, etc.
+      }
+    | null;
 };
-
 function Preview({ formData }: Props) {
-  const [selectedTemplateId, setSelectedTemplateId] = useState("classic-send-money");
-  const templateType = "send-money"; // For now, hardcoded
+  const templateType = formData?.templateType;
+  const availableTemplates = templateType ? templateRegistry[templateType] || [] : [];
+
+  const [selectedTemplateId, setSelectedTemplateId] = useState(
+    availableTemplates[0]?.id || ""
+  );
+
+  useEffect(() => {
+    // Reset template when templateType changes
+    if (templateType) {
+      const defaultId = templateRegistry[templateType]?.[0]?.id || "";
+      setSelectedTemplateId(defaultId);
+    }
+  }, [templateType]);
 
   if (!formData) {
     return <div 
@@ -20,7 +34,7 @@ function Preview({ formData }: Props) {
     </div>;
   }
 
-  const selectedTemplate = templateRegistry[templateType].find(
+  const selectedTemplate = availableTemplates.find(
     (template) => template.id === selectedTemplateId
   );
 
@@ -32,19 +46,20 @@ function Preview({ formData }: Props) {
          style={{ height: "500px" }}>
     
         {/* Poster Preview Centered */}
-        <div className="flex justify-center overflow-hidden max-h-[320px] sm:max-h-[400px] md:max-h-[480px]">
+        <div className="flex justify-center sm:max-h-[400px] max-h-[500px]">
           <div className="scale-[0.33] sm:scale-[0.4] md:scale-[0.6] origin-top transform">
             <div id="poster-preview" className="w-[1123px] h-[794px]">
               {TemplateComponent && <TemplateComponent {...formData} />}
+              {/* <ClassicWithdrawAgent agentNumber="12345" storeNumber="67890" agentName="John Doe" /> */}
             </div>
           </div>
         </div>
 
 
         {/* Template Selector BELOW, centered */}
-        <div className="mt-5 flex justify-center">
+        <div className="mt-28 flex justify-center">
           <TemplateSelector
-            templateType={templateType}
+            templateType={templateType ?? "send-money"}
             selectedTemplateId={selectedTemplateId}
             onSelect={(id) => setSelectedTemplateId(id)}
             formData={formData}

@@ -10,7 +10,7 @@ type Props = {
 
 type Inputs = {
   phoneNumber: string,
-  receiverName: string
+  receiverName: string,
 };
 
 /**
@@ -28,9 +28,13 @@ function SendMoneyForm({ onGenerate }: Props) {
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log("Form Submitted:", data);
-    onGenerate(data);
-  }
+    const enrichedData = {
+      ...data,
+      templateType: "send-money" as const,
+    };
+    onGenerate(enrichedData);
+  };
+  
 
   const phoneValue = watch("phoneNumber");
   const nameValue = watch("receiverName");

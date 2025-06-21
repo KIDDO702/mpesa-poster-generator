@@ -41,9 +41,10 @@ function TemplateSelector({ templateType, selectedTemplateId, onSelect, formData
                     <TemplateComponent {...formData} />
                   </div>
                 </div>
-
+              </div>
+              <div>
                 {/* Template name */}
-                <p className="text-center text-xs font-medium text-slate-700 dark:text-slate-300 mt-2">
+                <p className="text-center text-base font-medium text-slate-700 dark:text-slate-300 mt-2">
                   {template.name}
                 </p>
               </div>
