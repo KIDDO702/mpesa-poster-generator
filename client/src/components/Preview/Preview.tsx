@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import TemplateSelector from "../Templates/TemplateSelector";
 import { templateRegistry } from "../Templates/templateRegistry";
+import { FaRegFilePdf } from "react-icons/fa6";
+import { FaRegFileImage } from "react-icons/fa";
+import TemplateSelector from "../Templates/TemplateSelector";
 
 type Props = {
   formData:
@@ -41,12 +43,29 @@ function Preview({ formData }: Props) {
    
   return (
     <>
-      <div className="w-full py-7 overflow-auto border-2 border-dashed rounded-md shadow-sm bg-slate-100 border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:shadow-md"
-         style={{ height: "500px" }}>
+      <div className="w-full overflow-auto border-2 border-dashed rounded-md shadow-sm bg-slate-100 border-slate-200 dark:bg-slate-800 dark:border-slate-700 dark:shadow-md"
+         style={{ height: "600px" }}>
+
+        {/* Download Buttons */}
+        <div className="sticky top-0 z-10 bg-slate-100 dark:bg-slate-800 py-4 px-4 flex justify-center gap-4 w-full border-b border-slate-200 dark:border-slate-700 shadow-sm">
+          <button
+            className="flex items-center gap-2 px-4 py-2 bg-mpesa-red text-white rounded-md hover:bg-mpesa-green transition-colors duration-200 cursor-pointer"
+          >
+            <FaRegFilePdf className="text-lg" />
+            Download PDF
+          </button>
+
+          <button
+            className="flex items-center gap-2 px-4 py-2 bg-mpesa-red text-white rounded-md hover:bg-mpesa-green transition-colors duration-200 cursor-pointer"
+          >
+            <FaRegFileImage className="text-lg" />
+            Download Image
+          </button>
+        </div>
     
         {/* Poster Preview Centered */}
-        <div className="flex justify-center sm:max-h-[400px] max-h-[500px]">
-          <div className="scale-[0.33] sm:scale-[0.4] md:scale-[0.6] origin-top transform">
+        <div className="flex justify-center max-h-[250px] md:max-h-[430px] py-4 md:py-8">
+          <div className="scale-[0.3] sm:scale-[0.5] md:scale-[0.6] origin-top transform">
             <div id="poster-preview" className="w-[1123px] h-[794px]">
               {TemplateComponent && <TemplateComponent {...formData} />}
               {/* <ClassicWithdrawAgent agentNumber="12345" storeNumber="67890" agentName="John Doe" /> */}
@@ -56,7 +75,7 @@ function Preview({ formData }: Props) {
 
 
         {/* Template Selector BELOW, centered */}
-        <div className="mt-28 flex justify-center">
+        <div className="md:mt-16 flex justify-center pb-5">
           <TemplateSelector
             templateType={templateType ?? "send-money"}
             selectedTemplateId={selectedTemplateId}
