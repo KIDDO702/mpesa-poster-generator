@@ -9,7 +9,7 @@ type Props = {
 function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
 
   return (
-    <div className="w-full border-4 border-mpesa-green">
+    <div className="w-full h-full border-4 border-mpesa-green">
         <div className="w-full py-6 text-center bg-mpesa-green">
             <img src={MpesaLogo} alt="logo" className="mx-auto w-[85%]" />
             <h3 className="mt-8 text-5xl tracking-wider uppercase league-spartan-bold text-mpesa-white">
@@ -36,7 +36,7 @@ function ClassicSendMoney({ phoneNumber, receiverName }: Props) {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between w-11/12 mx-auto mt-8">
+            <div className="flex items-center justify-between w-11/12 mx-auto mt-16">
                 <hr className="flex-grow mr-4 border border-mpesa-green" />
                 <img src={SafaricomLogo} alt="safaricom-logo" className="w-[150px]" />
             </div>
