@@ -13,6 +13,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const PORT = process.env.PORT || 8080;
+const clientUrl = process.env.CLIENT_URL || "http://localhost:5500";
 
 app.post("/handle-image-download", async (req, res) => {
     const { formData, templateType, selectedTemplateId  } = req.body;
@@ -37,7 +38,7 @@ app.post("/handle-image-download", async (req, res) => {
             deviceScaleFactor: 2,
         });
 
-        await page.goto("http://localhost:5500", { waitUntil: "networkidle0" });
+        await page.goto(clientUrl, { waitUntil: "networkidle0" });
 
         await page.evaluate(({ formData, templateType, selectedTemplateId }) => {
             window.dispatchEvent(
@@ -99,7 +100,7 @@ app.post("/handle-pdf-download", async (req, res) => {
         deviceScaleFactor: 2,
       });
   
-      await page.goto("http://localhost:5500", { waitUntil: "networkidle0" });
+      await page.goto(clientUrl, { waitUntil: "networkidle0" });
   
       // Inject data
       await page.evaluate(({ formData, templateType, selectedTemplateId }) => {
@@ -180,7 +181,6 @@ app.post("/handle-pdf-download", async (req, res) => {
     }
 });
   
-
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
