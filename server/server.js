@@ -3,7 +3,10 @@ const cors = require("cors");
 const puppeteer = require("puppeteer");
 
 const corsOptions = {
-    origin: "http://localhost:5500",
+    origin: [
+        "http://localhost:5500",
+        "https://mpesa-poster-generator.netlify.app"
+    ],
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
 };
