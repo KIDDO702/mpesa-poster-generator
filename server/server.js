@@ -2,26 +2,21 @@ const express = require("express");
 const cors = require("cors");
 const puppeteer = require("puppeteer");
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      "http://localhost:5500",
-      "https://mpesa-poster-generator.netlify.app"
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-  optionsSuccessStatus: 200,
-};
-
-
 const app = express();
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors({
+  origin: "https://mpesa-poster-generator.netlify.app", // Replace with your client URL
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"],
+}));
+
+// Explicitly handle preflight
+// app.options("/*", cors({
+//   origin: "https://mpesa-poster-generator.netlify.app",
+//   methods: ["GET", "POST"],
+//   allowedHeaders: ["Content-Type"],
+// }));
+
 app.use(express.json());
 
 const PORT = process.env.PORT || 8080;
@@ -109,7 +104,7 @@ app.post("/handle-pdf-download", async (req, res) => {
       await page.setViewport({
         width: 1123,
         height: 794,
-        deviceScaleFactor: 2,
+        deviceScaleFactor: 3,
       });
   
       await page.goto(clientUrl, { waitUntil: "networkidle0" });

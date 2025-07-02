@@ -56,7 +56,7 @@ function Preview({ formData, selectedTemplateId, onSelect }: Props) {
 
     try {
       setDownloadStatus("generating");
-      const response = await axios.post(`${BASE_URL}/handle-image-download`, {
+      const response = await axios.post(`/api/handle-image-download`, {
         formData,
         templateType: formData.templateType,
         selectedTemplateId
@@ -103,7 +103,7 @@ function Preview({ formData, selectedTemplateId, onSelect }: Props) {
     try {
       setPdfDownloadStatus("generating");
       const response = await axios.post(
-        `${BASE_URL}/handle-pdf-download`,
+        `/api/handle-pdf-download`,
         {
           formData,
           templateType: formData.templateType,
