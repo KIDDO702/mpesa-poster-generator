@@ -3,13 +3,22 @@ const cors = require("cors");
 const puppeteer = require("puppeteer");
 
 const corsOptions = {
-    origin: [
-        "http://localhost:5500",
-        "https://mpesa-poster-generator.netlify.app"
-    ],
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://localhost:5500",
+      "https://mpesa-poster-generator.netlify.app"
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+  optionsSuccessStatus: 200,
 };
+
 
 const app = express();
 app.use(cors(corsOptions));
