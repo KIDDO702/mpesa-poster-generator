@@ -5,7 +5,7 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import { FaRegFileImage } from "react-icons/fa";
 import { ClockLoader, ScaleLoader } from "react-spinners";
 import TemplateSelector from "../Templates/TemplateSelector";
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+// const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 type Props = {
   formData:
