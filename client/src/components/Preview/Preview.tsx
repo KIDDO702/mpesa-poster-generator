@@ -5,7 +5,7 @@ import { FaRegFilePdf } from "react-icons/fa6";
 import { FaRegFileImage } from "react-icons/fa";
 import { ClockLoader, ScaleLoader } from "react-spinners";
 import TemplateSelector from "../Templates/TemplateSelector";
-// const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 type Props = {
   formData:
@@ -56,7 +56,7 @@ function Preview({ formData, selectedTemplateId, onSelect }: Props) {
 
     try {
       setDownloadStatus("generating");
-      const response = await axios.post(`/api/handle-image-download`, {
+      const response = await axios.post(`${BASE_URL}/handle-image-download`, {
         formData,
         templateType: formData.templateType,
         selectedTemplateId
@@ -103,7 +103,7 @@ function Preview({ formData, selectedTemplateId, onSelect }: Props) {
     try {
       setPdfDownloadStatus("generating");
       const response = await axios.post(
-        `/api/handle-pdf-download`,
+        `${BASE_URL}/handle-pdf-download`,
         {
           formData,
           templateType: formData.templateType,
