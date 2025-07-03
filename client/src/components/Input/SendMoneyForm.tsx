@@ -57,8 +57,8 @@ function SendMoneyForm({ onGenerate }: Props) {
             {...register("phoneNumber", {
               required: "Phone number is required",
               pattern: {
-                value: /^07\d{8}$/,
-                message: "Enter a valid Safaricom number (07XXXXXXXX)",
+                value: /^(07\d{8}|011\d{7})$/,
+                message: "Enter a valid Safaricom number (07XXXXXXXX or 011XXXXXXX)",
               },
             })}
             className={`w-full px-3 py-2 border rounded-lg bg-slate-100 dark:bg-slate-800 
