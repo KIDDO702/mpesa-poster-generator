@@ -17,6 +17,10 @@ app.use(express.json());
 const PORT = process.env.PORT;
 const clientUrl = process.env.CLIENT_URL || "http://localhost:5500";
 
+if (!PORT) {
+  throw new Error("PORT is not defined. Railway requires process.env.PORT to be used.");
+}
+
 app.post("/handle-image-download", async (req, res) => {
     const { formData, templateType, selectedTemplateId  } = req.body;
 
@@ -183,6 +187,6 @@ app.post("/handle-pdf-download", async (req, res) => {
     }
 });
   
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
