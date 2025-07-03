@@ -4,7 +4,7 @@ const puppeteer = require("puppeteer");
 
 const corsOptions = {
   origin: ["https://mpesa-poster-generator.netlify.app", "http://localhost:5500"], // Replace with your client URL
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
   credentials: true, // Allow cookies to be sent
   optionsSuccessStatus: 200, // For legacy browser support
@@ -14,10 +14,10 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 const clientUrl = process.env.CLIENT_URL || "http://localhost:5500";
 
-app.post("/handle-image-download", cors(corsOptions), async (req, res) => {
+app.post("/handle-image-download", async (req, res) => {
     const { formData, templateType, selectedTemplateId  } = req.body;
 
     if (!formData || !templateType || !selectedTemplateId) {
@@ -78,7 +78,7 @@ app.post("/handle-image-download", cors(corsOptions), async (req, res) => {
     }
 });
 
-app.post("/handle-pdf-download", cors(corsOptions), async (req, res) => {
+app.post("/handle-pdf-download", async (req, res) => {
     const { formData, templateType, selectedTemplateId } = req.body;
   
     if (!formData || !templateType || !selectedTemplateId) {
@@ -183,6 +183,6 @@ app.post("/handle-pdf-download", cors(corsOptions), async (req, res) => {
     }
 });
   
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on port ${PORT}`);
 });
